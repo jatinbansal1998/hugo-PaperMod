@@ -34,6 +34,10 @@
 {{- end }}
 {{- if site.Params.analytics.naver.SiteVerificationTag }}
 <meta name="naver-site-verification" content="{{ site.Params.analytics.naver.SiteVerificationTag }}">
+<!-- Preconnect to external CDNs for performance -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<!--<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">-->
+<!--<link rel="dns-prefetch" href="https://schema.org">-->
 {{- end }}
 
 {{- /* Styles */}}
