@@ -10,8 +10,8 @@
 {{- /* Title */}}
 <title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
 <!-- Preconnect to external CDNs for performance -->
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<!--<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>-->
+<!--<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">-->
 {{- /* Meta */}}
 {{- if .IsHome }}
 {{ with site.Params.keywords -}}<meta name="keywords" content="{{- range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}">{{ end }}
