@@ -13,7 +13,12 @@
 {{- end }}
 
 {{- with or .Params.locale site.Language.LanguageCode }}
-  <meta property="og:locale" content="{{ replace . `-` `_` }}">
+  {{- $parts := split . "-" }}
+  {{- $locale := index $parts 0 | lower }}
+  {{- if gt (len $parts) 1 }}
+    {{- $locale = printf "%s_%s" $locale (upper (index $parts 1)) }}
+  {{- end }}
+  <meta property="og:locale" content="{{ $locale }}">
 {{- end }}
 
 {{- if .IsPage }}
