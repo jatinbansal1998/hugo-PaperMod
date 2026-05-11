@@ -23,15 +23,21 @@
   <meta name="twitter:description" content="{{ trim . "\n\r\t " }}">
 {{- end }}
 
-{{- $twitterSite := "" }}
 {{- with site.Params.social }}
   {{- if reflect.IsMap . }}
     {{- with .twitter }}
-      {{- $content := . }}
+      {{- $site := . }}
       {{- if not (strings.HasPrefix . "@") }}
-        {{- $content = printf "@%v" . }}
+        {{- $site = printf "@%v" . }}
       {{- end }}
-      <meta name="twitter:site" content="{{ $content }}">
+      <meta name="twitter:site" content="{{ $site }}">
+    {{- end }}
+    {{- with or .twitter_creator .twitter }}
+      {{- $creator := . }}
+      {{- if not (strings.HasPrefix . "@") }}
+        {{- $creator = printf "@%v" . }}
+      {{- end }}
+      <meta name="twitter:creator" content="{{ $creator }}">
     {{- end }}
   {{- end }}
 {{- end }}
